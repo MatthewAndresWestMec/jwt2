@@ -2,14 +2,14 @@ import React from 'react'
 import {getSession ,login, logout } from '../lib'
 import Link from "next/link";
 import {redirect} from "next/navigation";
-
+import Image from "next/image";
 
 const profile = async () => {
 var session = await getSession()
   return (
     <div>
       <nav className='header'>
-    <h1 className="logo"><a href="/home">Flexbox</a></h1>
+      <h1 className="logo"><a href="/home"><Image alt=''height="100" width="125" src='https://pngimg.com/uploads/dog/dog_PNG50375.png'></Image></a></h1>
       <ul className="main-nav">
         <li><h1><Link href='/home'>Home</Link></h1></li>
         <li><h1><Link href='/profile'>Profile</Link></h1></li>
