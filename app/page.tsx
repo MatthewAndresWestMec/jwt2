@@ -8,6 +8,7 @@ export default function SignIn() {
       <form
         action={async (formdata) => {
           'use server' 
+          console.log(formdata)
           var success = await login(formdata);
           if (success) {
             redirect('/home');
