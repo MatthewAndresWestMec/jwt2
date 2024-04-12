@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Poppins:ital@1&display=swap');
 * {
 	box-sizing: border-box;
 }
@@ -102,27 +102,31 @@ button {
 
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Poppins:ital@1&display=swap');
+
 
 *{
     font-family: 'Poppins', sans-serif;
     margin:0;
 }
-.container h1{color:black}
+/* .container h1{color:black} */
 body{
     --color-primary:#2d3436;
     --color-secondary:#252c6a;
     --border-radius:4px;
     height: 100vh;
 }
-
+.center{
+    display: flex;
+        align-items: center;
+        justify-content: center;
+}
 .container{
     width:400px;
     max-width:400px;
     margin:1rem;
     padding:2rem;
     border-radius: var(--border-radius);
-    background: white;
+    background: rgb(23, 23, 23);
 }
 
 .form--hidden{
@@ -186,8 +190,18 @@ body{
 }
 
 .body-style{
-    height: 100vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.larger{
+    font-size: 10vh;
+}
+.c{
+    text-align: center;
+}
+.img{
+    border-radius: 50%;
 }

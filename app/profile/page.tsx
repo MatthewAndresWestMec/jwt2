@@ -1,40 +1,66 @@
-import React from 'react'
-import {getSession ,login, logout } from '../lib'
-import Link from "next/link";
-import {redirect} from "next/navigation";
-import Image from "next/image";
+import React from 'react';
+import { getSession, login, logout } from '../lib';
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import Image from 'next/image';
 
 const profile = async () => {
-var session = await getSession()
+  var session = await getSession();
   return (
     <div>
       <nav className='header'>
-      <h1 className="logo"><a href="/home"><Image alt=''height="100" width="125" src='https://pngimg.com/uploads/dog/dog_PNG50375.png'></Image></a></h1>
-      <ul className="main-nav">
-        <li><h1><Link href='/home'>Home</Link></h1></li>
-        <li><h1><Link href='/profile'>Profile</Link></h1></li>
-        <li onClick={async(formdata) =>{
-          'use server' 
-          await logout();
-          redirect('/');
-        }}><h1><Link href='/'>Logout</Link></h1></li>
-        {/* <li><form action={
-        async(formdata) =>{
-          'use server' 
-          await logout();
-          redirect('/');
-        }}><button type='submit'>Logout</button></form></li> */}
-      </ul>
-    </nav>
+        <h1 className='logo'>
+          <a href='/home'>
+            <Image
+              alt=''
+              height='100'
+              width='125'
+              src='https://pngimg.com/uploads/dog/dog_PNG50375.png'></Image>
+          </a>
+        </h1>
+        <ul className='main-nav'>
+          <li>
+            <h1>
+              <Link href='/home'>Home</Link>
+            </h1>
+          </li>
+          <li>
+            <h1>
+              <Link href='/profile'>Profile</Link>
+            </h1>
+          </li>
+          <li
+            onClick={async (formdata) => {
+              'use server';
+              await logout();
+              redirect('/');
+            }}>
+            <h1>
+              <Link href='/'>Logout</Link>
+            </h1>
+          </li>
+        </ul>
+      </nav>
 
-      <h1>Welcome, {session.user.name}</h1>
-      <h1>EMAIL</h1>
-      <h2>{session.user.email}</h2>
-      <h1>PASSWORD</h1>
-      <h2>{session.user.password}</h2>
-
+      <div className='body-style'>
+        <div className='c container'>
+          <Image
+            className='img'
+            width={300}
+            height={240}
+            src='https://images.pexels.com/photos/375880/pexels-photo-375880.jpeg?auto=compress&cs=tinysrgb&w=800'
+            alt='profile-img'></Image>
+          <h1>Welcome, {session.user.name}</h1>
+          <br></br>
+          <h1>Email:</h1>
+          <h2>{session.user.email}</h2>
+          <br></br>
+          <h1>Password:</h1>
+          <h2>{session.user.password}</h2>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default profile;
