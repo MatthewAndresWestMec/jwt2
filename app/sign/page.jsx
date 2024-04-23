@@ -1,19 +1,17 @@
 import { redirect } from 'next/navigation';
-import { login } from './lib';
 import Link from 'next/link';
-export default function Login() {
+export default function SignIn() {
   return (
     <div className='body-style'>
       <div className='container'>
         <form
+        // FUNCTION SHOULD BE PUSH TO MONGO AND THEN SEND TO '/'
           className='form'
           action={async (formdata) => {
             'use server';
-            if (await login(formdata)) {
-              redirect('/home');
-            }
+            // code
           }}>
-          <h1 className='form__title'>Login Page</h1>
+          <h1 className='form__title'>SignIn Page</h1>
           <div className='form__input-group'>
             <input
               className='form__input'
@@ -42,7 +40,7 @@ export default function Login() {
 
         <h1 className='center'>mandre361@west-mec.org and 1234</h1>
         <h1>
-        Don't have an account? <Link href='/sign' className='underline'>Sign in</Link>
+        Have an account?  <Link href='/' className='underline'>Login in</Link>
             </h1>
       </div>
     </div>
