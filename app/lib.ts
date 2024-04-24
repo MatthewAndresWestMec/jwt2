@@ -19,12 +19,30 @@ export async function decrypt(input:string): Promise<any>{
     const {payload} = await jwtVerify(input, key, {algorithms: ['HS256']});
     return payload;
 }
-
+export async function register(formData: FormData){
+    console.log('run')
+    await fetch('http://localhost:5000/users/register', {
+        method: 'POST',
+        body: JSON.stringify({email:formData.get('email'), password:formData.get('password')}),
+        headers:{'Content-Type': 'application/json'}
+    })
+    return true
+}
 export async function login(formData: FormData){
+    let success = false;
+    let users = await fetch('http://localhost:5000/users').then(response=>{
+        return response.json();
+    })
+    users.data.map(async (user:any) => {
+        if(formData.get('email') === user.email && formData.get('password') === user.password){
+            success = true;
+        }
+    })
+    console.log(users);
     // verify credentials and get the user
     // console.log(process.env.SECRET_EMAIL)
-    if(formData.get('email') === process.env.SECRET_EMAIL && formData.get('password') === process.env.SECRET_PASSWORD){
-        const user = {email:process.env.SECRET_EMAIL, password:process.env.SECRET_PASSWORD, name:'Matt'}
+    if(success){
+        const user = {email:formData.get('email'), password:formData.get('password')}
         
         // create the session
         const expires = new Date(Date.now() + 2 * 60 * 1000);
@@ -33,8 +51,10 @@ export async function login(formData: FormData){
         // save the session in a cookie
         cookies().set('session', session, {expires, httpOnly:true});
         return true;
+    }else{
+        return false;
     }
-    return false;
+
 }
 
 export async function logout(){

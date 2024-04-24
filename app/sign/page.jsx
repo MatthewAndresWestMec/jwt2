@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import { register } from '../lib'
 export default function SignIn() {
   return (
     <div className='body-style'>
@@ -9,7 +10,9 @@ export default function SignIn() {
           className='form'
           action={async (formdata) => {
             'use server';
-            // code
+            if (await register(formdata)) {
+              redirect('/');
+            }
           }}>
           <h1 className='form__title'>SignIn Page</h1>
           <div className='form__input-group'>

@@ -44,12 +44,6 @@ const profile = async () => {
 
       <div className='body-style'>
         <div className='c container'>
-          <Image
-            className='img'
-            width={300}
-            height={240}
-            src='https://images.pexels.com/photos/375880/pexels-photo-375880.jpeg?auto=compress&cs=tinysrgb&w=800'
-            alt='profile-img'></Image>
           <h1>Welcome, {session.user.name}</h1>
           <br></br>
           <h1>Email:</h1>
