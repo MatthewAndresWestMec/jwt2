@@ -1,12 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-## MASTERING JWT ASSIGNMENT
+- MASTERING JWT ASSIGNMENT
 
 ## TO RUN
  use bash / powershell and run 'npm start'
  this will run concurrently and the server / client folder.
 
 ## CREATED BY
- [Matthew Andres](github.com/MatthewAndresWestMec
+ [Matthew Andres](github.com/MatthewAndresWestMec)
 
 ## Learn More
 
