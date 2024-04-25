@@ -1,4 +1,4 @@
-- MASTERING JWT ASSIGNMENT
+ MASTERING JWT ASSIGNMENT
 
 ## TO RUN
  use bash / powershell and run 'npm start'
